@@ -35,3 +35,4 @@ C:\Users\alexu\source\repos\Top10CovidCases.WebApp\Top10CovidCases.WebApp\obj\De
 C:\Users\alexu\source\repos\Top10CovidCases.WebApp\Top10CovidCases.WebApp\obj\Debug\netcoreapp3.1\Top10CovidCases.WebApp.pdb
 C:\Users\alexu\source\repos\Top10CovidCases.WebApp\Top10CovidCases.WebApp\obj\Debug\netcoreapp3.1\Top10CovidCases.WebApp.genruntimeconfig.cache
 C:\Users\alexu\source\repos\Top10CovidCases.WebApp\Top10CovidCases.WebApp\obj\Debug\netcoreapp3.1\Top10CovidCases.WebApp.csproj.CopyComplete
+C:\Users\alexu\source\repos\Top10CovidCases.WebApp\Top10CovidCases.WebApp\bin\Debug\netcoreapp3.1\Newtonsoft.Json.dll

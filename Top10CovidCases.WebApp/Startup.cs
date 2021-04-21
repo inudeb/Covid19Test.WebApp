@@ -27,9 +27,11 @@ namespace Top10CovidCases.WebApp
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews();
-            services.AddHttpClient<ICovidStatisticsService, CovidStatisticsServicesImp>();
-            //services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
-            //services.AddTransient<HttpClientAuthorizationDelegatingHandler>();
+            services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
+            services.AddTransient<HttpClientAuthorizationDelegatingHandler>();
+            services.AddHttpClient<ICovidStatisticsService, CovidStatisticsServicesImp>()
+            .AddHttpMessageHandler<HttpClientAuthorizationDelegatingHandler>();
+     
             //services.AddHttpClient<ICovidStatisticsService, CovidStatisticsService>()
             //    .AddHttpMessageHandler<HttpClientAuthorizationDelegatingHandler>();
         }
