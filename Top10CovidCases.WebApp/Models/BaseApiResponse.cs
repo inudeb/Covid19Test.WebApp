@@ -5,8 +5,8 @@ using System.Threading.Tasks;
 
 namespace Top10CovidCases.WebApp.Models
 {
-    public class ProvinceModel:Region
+    public class BaseApiResponse<T>
     {
-        public string Province { get; set; }
+        public T Data { get; set; }
     }
 }

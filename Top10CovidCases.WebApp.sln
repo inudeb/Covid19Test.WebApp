@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30804.86
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Top10CovidCases.WebApp", "Top10CovidCases.WebApp\Top10CovidCases.WebApp.csproj", "{143A7061-DE6B-49C2-A32C-02B0C0F1B212}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Top10CovidCases.WebApp", "Top10CovidCases.WebApp\Top10CovidCases.WebApp.csproj", "{143A7061-DE6B-49C2-A32C-02B0C0F1B212}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Top10CovidCases.Test", "Top10CovidCases.Test\Top10CovidCases.Test.csproj", "{1604C7B9-B842-41D0-887C-20ABA3100B2D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{143A7061-DE6B-49C2-A32C-02B0C0F1B212}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{143A7061-DE6B-49C2-A32C-02B0C0F1B212}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{143A7061-DE6B-49C2-A32C-02B0C0F1B212}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1604C7B9-B842-41D0-887C-20ABA3100B2D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1604C7B9-B842-41D0-887C-20ABA3100B2D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1604C7B9-B842-41D0-887C-20ABA3100B2D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1604C7B9-B842-41D0-887C-20ABA3100B2D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

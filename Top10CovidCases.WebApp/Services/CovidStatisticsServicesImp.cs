@@ -1,51 +1,45 @@
-﻿using System;
+﻿using Microsoft.Extensions.Configuration;
+using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net.Http;
 using System.Threading.Tasks;
+using Top10CovidCases.WebApp.Infrastructure;
 using Top10CovidCases.WebApp.Models;
 
 namespace Top10CovidCases.WebApp.Services
 {
     public class CovidStatisticsServicesImp : ICovidStatisticsService
     {
-        private readonly HttpClient _client;
-        public CovidStatisticsServicesImp(HttpClient client)
+        private readonly HttpClient _httpClient;
+        private readonly IConfiguration _config;
+        private readonly string _remoteServiceBaseUrl;
+        public CovidStatisticsServicesImp(HttpClient httpClient, IConfiguration config)
         {
-            _client = client;
+            _httpClient = httpClient;
+            _config = config;
+            _remoteServiceBaseUrl = _config["rapidapiURL"];
         }
 
         public async Task<List<Region>> GetAllRegionsAsync()
         {
-
-
-            //        var request = new HttpRequestMessage
-            //        {
-            //            //define el metodo
-            //            Method = HttpMethod.Get,
-            //            //define la url y recurso
-            //            RequestUri = new Uri("https://covid-19-statistics.p.rapidapi.com/regions"),
-            //            //cabeceraz
-            //            Headers =
-            //{
-            //    { "x-rapidapi-key", "7dd565a419msh715a376555e1d53p123188jsn86b4ea0fc047" },
-            //    { "x-rapidapi-host", "covid-19-statistics.p.rapidapi.com" },
-            //},
-            //        };
-            //        //llamada del api
-            //        using (var response = await client.SendAsync(request))
-            //        {
-            //            response.EnsureSuccessStatusCode();
-            //            var body = await response.Content.ReadAsStringAsync();
-            //            Console.WriteLine(body);
-            //        }
-
-            throw new NotImplementedException();
+            var uri = API.Covid19API.Regions(_remoteServiceBaseUrl);
+            var response = await _httpClient.GetAsync(uri);
+            response.EnsureSuccessStatusCode();
+            var responseString = await response.Content.ReadAsStringAsync();
+            var x = JsonConvert.DeserializeObject<BaseApiResponse<List<Region>>>(responseString);
+            return x.Data;
         }
 
-        public Task<List<ReportModel>> GetReportDataAsync(string regionISO)
+        public async Task<List<ReportModel>> GetReportDataAsync(string regionISO="")
         {
-            throw new NotImplementedException();
+            var uri = API.Covid19API.Reports(_remoteServiceBaseUrl) + (!string.IsNullOrEmpty(regionISO) ? $"?iso={regionISO}" : "");
+            var response = await _httpClient.GetAsync(uri);
+            response.EnsureSuccessStatusCode();
+            var responseString = await response.Content.ReadAsStringAsync();
+            var x = JsonConvert.DeserializeObject<BaseApiResponse<List<ReportModel>>>(responseString);
+            return x.Data; 
         }
     }
 }
